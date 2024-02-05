@@ -1,0 +1,17 @@
+/* styles.css */
+.menu-bar {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+    -fx-background-color: #333333;
+}
+
+.menu-button {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.menu-button:hover {
+    -fx-background-color: #555555;
+}
