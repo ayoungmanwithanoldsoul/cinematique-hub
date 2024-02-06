@@ -13,13 +13,15 @@ public class anotherClass extends VBox {
         setAlignment(Pos.CENTER);
 
         // Create components for the home page
-        ImageView imageView = new ImageView(new Image("https://images.unsplash.com/photo-1662016745909-1554d716b8b2?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"));
-        TextField searchField = new TextField();
+//        ImageView imageView = new ImageView(new Image("https://images.unsplash.com/photo-1662016745909-1554d716b8b2?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"));
+        TextField searchField = new TextField("uhuiyhuiy");
+        searchField.setPrefWidth(89);
+
         searchField.setPromptText("Search...");
 
         Button searchButton = new Button("Search");
 
         // Add components to the VBox
-        getChildren().addAll(imageView, searchField, searchButton);
+        getChildren().addAll(searchField, searchButton);
     }
 }

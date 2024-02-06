@@ -1,10 +1,13 @@
+//package edu.umindanao.cinematiquehub;
 package edu.umindanao.cinematiquehub;
 
+import edu.umindanao.cinematiquehub.scenes.components.NavBar;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -13,65 +16,19 @@ import edu.umindanao.cinematiquehub.scenes.user.HomeScreen;
 
 public class Main extends Application {
 
-    /**
-     * Main starting point of our application
-     */
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("CinematiqueHub");
-        BorderPane root = new HomeScreen();
-
-        Scene scene = new Scene(root);
+        HomeScreen homeScreen = new HomeScreen();
+        Scene scene = new Scene(homeScreen);
         stage.setScene(scene);
-        stage.setHeight(1020);
-        stage.setWidth(1920);
-//        stage.setTitle("JavaFX App");
-//
-//        Stage stage2 = new Stage();
-////        stage2.initModality(Modality.APPLICATION_MODAL);
-//        stage2.initModality(Modality.WINDOW_MODAL);
-//        stage2.initModality(Modality.NONE);
+        stage.setHeight(720);
+        stage.setWidth(1280);
 
         stage.centerOnScreen();
 
         stage.show();
-////        text.getOnMouseClicked().handle(stage2.showAndWait());
-//        stage2.setOnShown((event) -> {
-//            System.out.println("Stage Shown");
-//        });
-//        stage.setOnShowing((event) -> {
-//            System.out.println("Showing Stage");
-//        });
-//        stage2.setOnHidden((event) -> {
-//            System.out.println("Stage hidden");
-//        });
-//        stage2.setOnHiding((event) -> {
-//            System.out.println("Hiding Stage");
-//        });
-//        stage2.setOnCloseRequest((event) -> {
-//            System.out.println("Closing Stage");
-//        });
-//        stage2.addEventHandler(KeyEvent.KEY_PRESSED, (event) -> {
-//            System.out.println("Key pressed: " + event.toString());
-//
-//            switch (event.getCode().getCode()) {
-//                case 27: { // 27 = ESC key
-//                    stage2.close();
-//                    break;
-//                }
-//                case 10: { // 10 = Return
-//                    stage2.setWidth(stage2.getWidth() * 2);
-//                }
-//                default: {
-//                    System.out.println("Unrecognized key");
-//                }
-//            }
-//        });
-////        stage2.show();
-//
-//        stage2.show();
 
-//        stage.setFullScreen(true);
 
     }
 
@@ -79,3 +36,68 @@ public class Main extends Application {
         launch();
     }
 }
+
+//
+//import javafx.application.Application;
+//import javafx.geometry.Insets;
+//import javafx.scene.Scene;
+//import javafx.scene.control.Label;
+//import javafx.scene.layout.VBox;
+//import javafx.scene.paint.Color;
+//import javafx.scene.shape.Circle;
+//import javafx.scene.text.Font;
+//import javafx.stage.Stage;
+//
+//public class Main extends Application {
+//
+//    @Override
+//    public void start(Stage primaryStage) {
+//        primaryStage.setTitle("Vertical Navigation Bar");
+//
+//        // Create VBox for the navigation bar
+//        VBox navBarVBox = new VBox();
+//        navBarVBox.setPadding(new Insets(10));
+//        navBarVBox.setStyle("-fx-background-color: #333333;"); // Set background color
+//
+//        // Create navigation items
+//        for (int i = 1; i <= 5; i++) {
+//            NavItem navItem = new NavItem("Item " + i);
+//            navBarVBox.getChildren().add(navItem);
+//        }
+//
+//        // Create Scene
+//        Scene scene = new Scene(navBarVBox, 200, 400);
+//        primaryStage.setScene(scene);
+//
+//        primaryStage.show();
+//    }
+//
+//    // Custom navigation item class
+//    private static class NavItem extends VBox {
+//        public NavItem(String itemName) {
+//            setSpacing(10);
+//
+//            // Create Circle
+//            Circle circle = new Circle(8, Color.DODGERBLUE);
+//
+//            // Create Label
+//            Label label = new Label(itemName);
+//            label.setTextFill(Color.WHITE);
+//            label.setFont(new Font(14));
+//
+//            // Add Circle and Label to the VBox
+//            getChildren().addAll(circle, label);
+//
+//            // Add click event or any other customization as needed
+//            setOnMouseClicked(event -> {
+//                System.out.println("Clicked on: " + itemName);
+//                // Add your navigation logic here
+//            });
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        launch(args);
+//    }
+//}
+
