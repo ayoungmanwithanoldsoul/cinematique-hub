@@ -1,73 +1,26 @@
 package edu.umindanao.cinematiquehub.ui.screens;
 
-import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.control.Control;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
-import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+import edu.umindanao.cinematiquehub.ui.components.Content;
+import edu.umindanao.cinematiquehub.ui.sections.NavBar;
+import javafx.scene.control.SplitPane;
+import javafx.scene.layout.VBox;
 
-public class NodeUtils {
 
-    public static void applyPadding(Node node, Insets padding) {
-        node.setPadding(padding);
-    }
+public class DefaultScreen extends VBox {
+    public DefaultScreen() {
+        SplitPane splitPane = new SplitPane();
+//        splitPane.setPrefSize(1920, 1080);
+        splitPane.setMinSize(400, 500);
+        Content content = new Content();
+        String[] items = new String[]{"Paolo", "Andrew", "Santos", "Pomar"};
+        NavBar navBar = new NavBar(items);
+//        navBar.setItems(items);
+        navBar.setMinWidth(300);
+//        navBar.setma
+        splitPane.getItems().addAll(navBar, content);
+        splitPane.setDividerPositions(0.4);
 
-    public static void applyMargins(Node node, Insets margins) {
-        Insets currentMargins = StackPane.getMargin(node);
-        if (currentMargins == null) {
-            currentMargins = new Insets(0);
-        }
-        StackPane.setMargin(node, new Insets(
-                currentMargins.getTop() + margins.getTop(),
-                currentMargins.getRight() + margins.getRight(),
-                currentMargins.getBottom() + margins.getBottom(),
-                currentMargins.getLeft() + margins.getLeft()
-        ));
-    }
-
-    public static void setWidth(Node node, double width) {
-        node.setPrefWidth(width);
-    }
-
-    public static void setHeight(Node node, double height) {
-        node.setPrefHeight(height);
-    }
-
-    public static void setMinWidth(Node node, double minWidth) {
-        node.setMinWidth(minWidth);
-    }
-
-    public static void setMinHeight(Node node, double minHeight) {
-        node.setMinHeight(minHeight);
-    }
-
-    public static void setBackgroundColor(Node node, Color backgroundColor) {
-        BackgroundFill backgroundFill = new BackgroundFill(
-                backgroundColor, CornerRadii.EMPTY, Insets.EMPTY);
-        Background background = new Background(backgroundFill);
-        node.setBackground(background);
-    }
-
-    public static void setFont(Control control, String fontName, double fontSize) {
-        Font font = Font.font(fontName, fontSize);
-        control.setFont(font);
-    }
-
-    public static void setTextColor(Control control, Color textColor) {
-        control.setTextFill(textColor);
-    }
-
-    public static void setBorderColor(Node node, Color borderColor) {
-        BorderStroke borderStroke = new BorderStroke(
-                borderColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderStroke.THIN);
-        Border border = new Border(borderStroke);
-        node.setBorder(border);
+        getChildren().add(splitPane);
+//        setPrefSize(1920, 1080);
     }
 }

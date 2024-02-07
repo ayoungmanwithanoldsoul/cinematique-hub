@@ -12,4 +12,6 @@ module edu.umindanao.cinematiquehub {
 
     opens edu.umindanao.cinematiquehub to javafx.fxml;
     exports edu.umindanao.cinematiquehub;
+    exports edu.umindanao.uitesting;
+    opens edu.umindanao.uitesting to javafx.fxml;
 }
