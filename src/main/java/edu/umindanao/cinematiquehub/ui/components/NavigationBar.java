@@ -1,7 +1,4 @@
-package edu.umindanao.cinematiquehub.scenes.components;
-
-import javafx.scene.layout.AnchorPane;
-import org.w3c.dom.Node;
+package edu.umindanao.cinematiquehub.ui.components;
 
 public class NavigationBar {
 //

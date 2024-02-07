@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import edu.umindanao.cinematiquehub.scenes.screens.DefaultScreen;
+import edu.umindanao.cinematiquehub.ui.screens.DefaultScreen;
 
 public class Main extends Application {
 

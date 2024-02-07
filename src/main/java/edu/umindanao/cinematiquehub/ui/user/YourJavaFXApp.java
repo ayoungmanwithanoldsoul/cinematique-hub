@@ -1,4 +1,4 @@
-package edu.umindanao.cinematiquehub.scenes.user;
+package edu.umindanao.cinematiquehub.ui.user;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;

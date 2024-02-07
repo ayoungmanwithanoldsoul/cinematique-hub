@@ -1,4 +1,4 @@
-package edu.umindanao.cinematiquehub.scenes.components;
+package edu.umindanao.cinematiquehub.ui.components;
 
 //import edu.umindanao.cinematiquehub.utils.Sizes;
 

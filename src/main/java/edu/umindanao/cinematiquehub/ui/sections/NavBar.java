@@ -1,9 +1,9 @@
-package edu.umindanao.cinematiquehub.scenes.sections;
+package edu.umindanao.cinematiquehub.ui.sections;
 
 //import edu.umindanao.cinematiquehub.utils.Sizes;
 
 
-import edu.umindanao.cinematiquehub.scenes.components.NavBarItem;
+import edu.umindanao.cinematiquehub.ui.components.NavBarItem;
 import javafx.geometry.Insets;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;

@@ -1,11 +1,10 @@
-package edu.umindanao.cinematiquehub.scenes.components;
+package edu.umindanao.cinematiquehub.ui.components;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 
 public class Content extends ScrollPane {
 
