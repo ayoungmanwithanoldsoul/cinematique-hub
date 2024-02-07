@@ -2,22 +2,45 @@ package edu.umindanao.cinematiquehub.scenes.components;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public class Content extends VBox {
+public class Content extends ScrollPane {
 
     public Content() {
-        setPadding(new Insets(10));
-        setSpacing(10);
-        setStyle("-fx-background-color: #f0f0f0;"); // Set background color
+        setPrefSize(-1.0, -1.0);
+
+        // create an achor pane to anchor the items
+        // create an anchor pane inside the scroll pane
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setMinSize(-1.0, -1.0);
+        anchorPane.setPrefSize(861.0, 863.0);
+
+
+//        setPadding(new Insets(10));
+//        setSpacing(10);
+//        setStyle("-fx-background-color: #f0f0f0;"); // Set background color
 
         // Add sample card items to the content
-        getChildren().addAll(
-                createCard("Card 1"),
-                createCard("Card 2"),
-                createCard("Card 3")
+        int i = 0;
+        anchorPane.getChildren().addAll(
+                createCard("Card " + i++),
+                createCard("Card " + i++),
+                createCard("Card " + i++),
+                createCard("Card " + i++),
+                createCard("Card " + i++),
+                createCard("Card " + i++),
+                createCard("Card " + i++),
+                createCard("Card " + i++),
+                createCard("Card " + i++),
+                createCard("Card " + i++),
+                createCard("Card " + i++),
+                createCard("Card " + i)
         );
+
+        setContent(anchorPane);
     }
 
     private StackPane createCard(String cardName) {

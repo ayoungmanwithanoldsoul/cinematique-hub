@@ -1,19 +1,18 @@
-/*
 package edu.umindanao.cinematiquehub;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import edu.umindanao.cinematiquehub.scenes.user.HomeScreen;
+import edu.umindanao.cinematiquehub.scenes.screens.DefaultScreen;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("CinematiqueHub");
-        HomeScreen homeScreen = new HomeScreen();
-        Scene scene = new Scene(homeScreen);
+        DefaultScreen defaultScreen = new DefaultScreen();
+        Scene scene = new Scene(defaultScreen);
         stage.setScene(scene);
         stage.setHeight(720);
         stage.setWidth(1280);
@@ -95,7 +94,8 @@ public class Main extends Application {
 //}
 
 
-*/
+/*
+
 package edu.umindanao.cinematiquehub;
 
 
@@ -214,3 +214,4 @@ public class Main extends Application {
     }
 }
 
+*/
