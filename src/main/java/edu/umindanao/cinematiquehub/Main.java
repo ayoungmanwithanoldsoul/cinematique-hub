@@ -21,6 +21,18 @@ public class Main extends Application {
 
         stage.show();
 
+        MovieCard movieCard = new MovieCard(
+                "Movie Title",
+                "your_movie_image_url.jpg",
+                "★★★☆☆",
+                "Hello World fjsd\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec."
+        );
+        // Set up scene
+        Scene scene2 = new Scene(movieCard, 400, 600);
+
+
+        stage.setScene(scene2);
+
 
     }
 
