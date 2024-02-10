@@ -9,6 +9,8 @@ module edu.umindanao.cinematiquehub {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires com.fasterxml.jackson.databind;
+//    requires fontawesomefx;
 
     opens edu.umindanao.cinematiquehub to javafx.fxml;
     exports edu.umindanao.cinematiquehub;

@@ -18,6 +18,7 @@ public class Main extends Application {
         stage.setWidth(1280);
 
         stage.centerOnScreen();
+        System.out.println();
 
         stage.show();
 

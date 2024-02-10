@@ -1,12 +1,24 @@
 package edu.umindanao.cinematiquehub.ui.components;
 
+//import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+
+import edu.umindanao.cinematiquehub.controllers.MovieCardController;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+
+import java.util.Collection;
+//import edu.umindanao.cinematiquehub.ui.components.AnotherButton;
+
 
 public class Content extends ScrollPane {
 
@@ -43,56 +55,36 @@ public class Content extends ScrollPane {
 //                createCard("Card " + i++),
 //                createCard("Card " + i)
 //        );
+//        AnotherButton customButton = new AnotherButton("Click me", AnotherButton.Size.LARGE, AnotherButton.Variant.SUCCESS, "#ff0000", true);
+//        customButton.setButtonBorderRadius(19);
+//        customButton.setTextColor();
+
+
+        StyledText styledText = new StyledText("Hello, World!");
+
+        // Customize the styled text
+        styledText.setColor(Color.BLUE);
+//        styledText.setEffect(new DropShadow());
+        styledText.setFontSize(20);
+        styledText.setFont("Arial");
+//        styledText.setBold(true);
+//        styledText.setItalic(true);
+        styledText.setFontSize(80);
+
+        styledText.setText("diodis\noioedi");
+
+
+        MovieCardSample movieCardSample = new MovieCardSample();
+        MovieCardController movieController = new MovieCardController(movieCardSample);
+        movieController.initialize(null, null);
+
+
         contentWrapperFlowPane.getChildren().addAll(
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, w\"",
-                        "\"Neque porro quisquam est qui dolorem ip\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\""),
-                new HoverCardSample(
-                        "\"There is no one who loves pain itself, wh\"",
-                        "\"Neque porro quisquam est qui dolorem i\"")
+                movieCardSample
         );
 
         anchorPane.getChildren().add(contentWrapperFlowPane);
-
         setContent(anchorPane);
-    }
 
-    private StackPane createCard(String cardName) {
-        StackPane card = new StackPane();
-        card.setStyle("-fx-background-color: #ffffff; -fx-border-color: #cccccc;");
-        card.setPadding(new Insets(10));
-        card.setMinHeight(100);
-        card.getChildren().add(new Label(cardName));
-        return card;
     }
 }
