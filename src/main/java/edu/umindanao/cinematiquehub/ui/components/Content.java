@@ -74,13 +74,13 @@ public class Content extends ScrollPane {
         styledText.setText("diodis\noioedi");
 
 
-        MovieCardSample movieCardSample = new MovieCardSample();
-        MovieCardController movieController = new MovieCardController(movieCardSample);
+        HoverCard hoverCardSample = new HoverCard();
+        MovieCardController movieController = new MovieCardController(hoverCardSample);
         movieController.initialize(null, null);
 
 
         contentWrapperFlowPane.getChildren().addAll(
-                movieCardSample
+                hoverCardSample
         );
 
         anchorPane.getChildren().add(contentWrapperFlowPane);

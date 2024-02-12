@@ -1,62 +1,88 @@
 package edu.umindanao.cinematiquehub.ui.components;
 
-//import edu.umindanao.cinematiquehub.utils.Sizes;
-
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 
-public class NavBarItem extends AnchorPane {
-    public NavBarItem(String item) {
-        setPrefSize(400, 55.0);
+public class NavBarItem extends Button {
 
-        // Create a horizontal box to align the icon and the label
-        HBox hBox = new HBox();
-        hBox.setLayoutX(33.0);
-        hBox.setLayoutY(13.0);
-        hBox.setPrefSize(400, 32.0);
+    private final HBox hBox;
+    private final Circle circle;
+    private final Label label;
+    private final String itemName;
+
+    private final BooleanProperty selectedProperty = new SimpleBooleanProperty(false);
+
+    public NavBarItem(String item, int index, NavItemClickListener listener) {
+        itemName = item;
+        hBox = new HBox();
         hBox.setSpacing(10.0);
-//        setPadding(new Insets(10));
-        setStyle("-fx-background-color: GREEN;"); // Set background color
-        setBorder(new Border(new javafx.scene.layout.BorderStroke(
-                Color.BLACK,
-                BorderStrokeStyle.SOLID,
-                CornerRadii.EMPTY,
-                new BorderWidths(5)
-        )));
-
 
         // Create Circle as a sample icon
-        Circle circle = new Circle(16.0, Color.DODGERBLUE);
+        circle = new Circle(16.0, Color.DODGERBLUE);
         circle.setStroke(Color.BLACK);
         circle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
 
         // Create Label
-        Label label = new Label(item);
+        label = new Label(item);
         label.setTextFill(Color.WHITE);
-//        label.setFont(new Font(20));
-
-        // Set font and color for the label
         label.setFont(new Font("Arial", 20));
-//        label.setTextFill(Color.BLUE);
 
         // Add Circle and Label to the HBox
-
         hBox.getChildren().addAll(circle, label);
         hBox.setPadding(new Insets(10));
 
+        // Set button content and style
+        setGraphic(hBox);
+        setContentDisplay(ContentDisplay.LEFT);
+        setMaxWidth(Double.MAX_VALUE);
 
-        // Add click event or any other customization as needed
-        setOnMouseClicked(event -> {
-            System.out.println("Clicked on: " + item);
-            // Add your navigation logic here
-        });
+        // Add click event for item selection
+        setOnAction(event -> listener.onNavItemClicked(index));
 
-        setTopAnchor(hBox, (getPrefHeight() - hBox.getPrefHeight()) / 2);
-        getChildren().add(hBox);
-//        setTopAnchor(hBox, 0.0);
+        // Set initial style
+        updateStyle();
+
+        // Bind selectedProperty to background color
+        selectedProperty.addListener((observable, oldValue, newValue) -> updateStyle());
+    }
+
+    public boolean isSelected() {
+        return selectedProperty.get();
+    }
+
+    public void setSelected(boolean selected) {
+        selectedProperty.set(selected);
+    }
+
+    private void updateStyle() {
+        // Update style based on the selected state
+        if (selectedProperty.get()) {
+            setBackground(new Background(new BackgroundFill(Color.rgb(200, 200, 200), new CornerRadii(5), Insets.EMPTY)));
+            setStyle("-fx-border-width: 0 0 0 20; -fx-border-color: #00C853;");
+            label.setTextFill(Color.BLACK);
+        } else {
+            setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+            setStyle("-fx-border-width: 0;");
+            label.setTextFill(Color.WHITE);
+        }
+    }
+
+    public String getItem() {
+        return itemName;
+    }
+
+    public interface NavItemClickListener {
+        void onNavItemClicked(int selectedIndex);
     }
 }

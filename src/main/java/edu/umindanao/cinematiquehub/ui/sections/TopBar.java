@@ -1,12 +1,10 @@
 package edu.umindanao.cinematiquehub.ui.sections;
 
-import javafx.geometry.HorizontalDirection;
+import edu.umindanao.cinematiquehub.ui.components.AnotherButton;
+import edu.umindanao.cinematiquehub.ui.components.CustomPasswordField;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
@@ -22,13 +20,22 @@ public class TopBar extends AnchorPane {
         HBox iconBar = new HBox();
 
         // Search Bar Sample
-        TextField searchBar = new TextField();
+        CustomPasswordField searchBar = new CustomPasswordField();
 
         searchBar.setPrefWidth(500);
         searchBar.setPrefHeight(50);
+//        searchBar.setBorderColor(Color.BLUEVIOLET);
+//        searchBar.setBackground(Background.fill(Color.LIGHTBLUE));
+//        searchBar.setBorderColor(Color.BLUE);
+//        searchBar.setBorderRadius(40);
+        searchBar.setBackgroundColor(Color.BLUEVIOLET);
+        searchBar.setTextSize(14);
+
+        AnotherButton searchButton = new AnotherButton("Search", AnotherButton.Size.EXTRA_LARGE, AnotherButton.Variant.SUCCESS, "Blue", "Red", true);
 
         HBox searchBarWrapper = new HBox();
-        searchBarWrapper.getChildren().add(searchBar);
+        searchBarWrapper.setPadding(new Insets(10, 20, 10, 20));
+        searchBarWrapper.getChildren().addAll(searchBar, searchButton);
 
 
         // Create Circle as a sample icon

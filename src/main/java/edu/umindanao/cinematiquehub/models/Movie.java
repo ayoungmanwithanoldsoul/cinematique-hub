@@ -2,6 +2,9 @@ package edu.umindanao.cinematiquehub.models;
 
 import java.util.List;
 
+/**
+ * A movie model for managing the structure of the movie data model
+ */
 public class Movie {
     private String title;
     private String description;
@@ -9,7 +12,12 @@ public class Movie {
     private double ratings;
     private List<String> cast;
     private String producer;
+    private String category;
     private String imageUri;
+    private double duration;
+
+    private double price;
+
 
     // Add getters and setters for each property
 
@@ -61,6 +69,14 @@ public class Movie {
         this.producer = producer;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public String getImageUri() {
         return imageUri;
     }
@@ -68,4 +84,22 @@ public class Movie {
     public void setImageUri(String imageUri) {
         this.imageUri = imageUri;
     }
+
+    public double getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Double duration) {
+        this.duration = duration;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+
 }

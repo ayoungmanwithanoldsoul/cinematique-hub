@@ -10,16 +10,21 @@ import javafx.scene.text.Text;
 
 
 /**
- * A Custom component to create display texts to the user
+ * A Custom component to create display texts to the user <p>
  * Usage:
- * StyledText styledText = new StyledText("Hello, World!");
- * <p>
+ * <pre><code>StyledText styledText = new StyledText("Hello, World!");</code></pre>
+ * or without parameters<p>
+ * <code><pre>StyledText styledText = new StyledText();</pre></code>
+ * <code>
+ * <pre>
  * styledText.setColor(Color.BLUE);
  * styledText.setEffect(new DropShadow());
  * styledText.setFontSize(20);
  * styledText.setFont("Arial");
  * styledText.setBold(true);
  * styledText.setItalic(true);
+ * </pre>
+ * </code>
  */
 public class StyledText extends StackPane {
 
@@ -29,6 +34,13 @@ public class StyledText extends StackPane {
 
     public StyledText(String initialText) {
         text = new Text(initialText);
+        getChildren().add(text);
+        bold = false;
+        italic = false;
+    }
+
+    public StyledText() {
+        text = new Text();
         getChildren().add(text);
         bold = false;
         italic = false;

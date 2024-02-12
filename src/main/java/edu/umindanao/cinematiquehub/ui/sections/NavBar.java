@@ -1,55 +1,87 @@
 package edu.umindanao.cinematiquehub.ui.sections;
 
-//import edu.umindanao.cinematiquehub.utils.Sizes;
-
-
 import edu.umindanao.cinematiquehub.ui.components.NavBarItem;
 import javafx.geometry.Insets;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 
-public class NavBar extends AnchorPane {
+class CustomLogo extends HBox {
+
+    public CustomLogo() {
+        Label appNameLabel = new Label("CinematiqueHub");
+        appNameLabel.setFont(new Font("Arial", 24));
+        appNameLabel.setTextFill(Color.WHITE);
+
+        // Customize logo container if needed
+        setSpacing(10);
+        setPadding(new Insets(10));
+        setStyle("-fx-background-color: #333333;"); // Replace with your preferred background color
+        getChildren().add(appNameLabel);
+    }
+}
+
+public class NavBar extends StackPane {
 
     private final VBox vBox;
+    private final NavBarItem[] navItems;
+    private final CustomLogo customLogo;
+
+    private final IntegerProperty selectedTabIndex = new SimpleIntegerProperty(-1);
 
     public NavBar(String[] items) {
-        setPrefSize(400, 683.0);
-        this.vBox = new VBox();
-//        setPadding(new Insets(10));
-//        setStyle("-fx-background-color: #333333;");
+        vBox = new VBox();
+        customLogo = new CustomLogo();
 
-        // Set the layout of the Vbox on instantiation
-        this.vBox.setLayoutX(-4.0);
-        this.vBox.setPrefSize(238.0, 576.0);
-        this.vBox.setPadding(new Insets(5.0));
+        // Set the layout of the VBox on instantiation
+        vBox.setSpacing(10);
+        vBox.setPadding(new Insets(10));
+        vBox.setStyle("-fx-background-color: #333333;"); // Replace with your preferred background color
 
-        // Set background color
-//        String[] tabNames = {"Home", "Movies", "TV", "My Library"};
         // Create navigation items
-        for (String tabName : items) {
-            NavBarItem navItem = new NavBarItem(tabName);
-//            navItem.setItem(tabName);
-            this.vBox.getChildren().add(navItem);
+        navItems = new NavBarItem[items.length];
+        for (int i = 0; i < items.length; i++) {
+            navItems[i] = new NavBarItem(items[i], i, this::handleNavItemClicked);
+            vBox.getChildren().add(navItems[i]);
         }
-        getChildren().add(this.vBox);
+
+        getChildren().addAll(customLogo, vBox);
     }
 
-    public NavBar() {
-        setPrefSize(324.0, 683.0);
-        this.vBox = new VBox();
-//        setPadding(new Insets(10));
-//        setStyle("-fx-background-color: #333333;");
+    private void handleNavItemClicked(int selectedIndex) {
+        if (selectedTabIndex.get() != selectedIndex) {
+            // Deselect the currently selected item
+            if (selectedTabIndex.get() != -1) {
+                navItems[selectedTabIndex.get()].setSelected(false);
+            }
 
-        // Set the layout of the Vbox on instantiation
-        this.vBox.setLayoutX(-4.0);
-        this.vBox.setPrefSize(238.0, 576.0);
-        this.vBox.setPadding(new Insets(5.0));
+            // Select the newly clicked item
+            selectedTabIndex.set(selectedIndex);
+            navItems[selectedIndex].setSelected(true);
+
+            // Add your navigation logic here
+            System.out.println("Clicked on: " + navItems[selectedIndex].getItem());
+        }
     }
 
-    public void setItems(String[] items) {
-        for (String tabName : items) {
-            NavBarItem navItem = new NavBarItem(tabName);
-            this.vBox.getChildren().add(navItem);
+    public void setDefaultSelectedIndex(int defaultSelectedIndex) {
+        if (defaultSelectedIndex >= 0 && defaultSelectedIndex < navItems.length) {
+            // Deselect the current selected item
+            if (selectedTabIndex.get() != -1) {
+                navItems[selectedTabIndex.get()].setSelected(false);
+            }
+
+            // Select the new default item
+            selectedTabIndex.set(defaultSelectedIndex);
+            navItems[defaultSelectedIndex].setSelected(true);
         }
     }
 }
