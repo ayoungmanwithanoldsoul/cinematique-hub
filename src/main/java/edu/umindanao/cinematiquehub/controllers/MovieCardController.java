@@ -2,12 +2,10 @@ package edu.umindanao.cinematiquehub.controllers;
 
 import edu.umindanao.cinematiquehub.models.Movie;
 import edu.umindanao.cinematiquehub.ui.components.HoverCard;
-import edu.umindanao.cinematiquehub.ui.components.MovieCardSample;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class MovieCardController implements Initializable {
@@ -30,7 +28,13 @@ public class MovieCardController implements Initializable {
     private Movie createTestData() {
         Movie movie = new Movie();
         movie.setTitle("Test Movie");
-        movie.setDescription("This is a test movie description. Dolor Sit Amet. Hello World, how is it going?");
+        movie.setDescription("This is a test movie description. Dolor Sit Amet. Hello World, how is it going?" +
+                "This is a test movie description. Dolor Sit Amet. Hello World, how is it going?" +
+                "This is a test movie description. Dolor Sit Amet. Hello World, how is it going?" +
+                "This is a test movie description. Dolor Sit Amet. Hello World, how is it going?" +
+                "This is a test movie description. Dolor Sit Amet. Hello World, how is it going?" +
+                "This is a test movie description. Dolor Sit Amet. Hello World, how is it going?" +
+                "This is a test movie description. Dolor Sit Amet. Hello World, how is it going?");
         movie.setYear(2022);
         movie.setRatings(4.8);
         movie.setDuration(112.3);

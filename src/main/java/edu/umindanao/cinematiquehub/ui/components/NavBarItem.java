@@ -23,6 +23,7 @@ public class NavBarItem extends Button {
 
     private final BooleanProperty selectedProperty = new SimpleBooleanProperty(false);
 
+
     public NavBarItem(String item, int index, NavItemClickListener listener) {
         itemName = item;
         hBox = new HBox();
@@ -84,5 +85,7 @@ public class NavBarItem extends Button {
 
     public interface NavItemClickListener {
         void onNavItemClicked(int selectedIndex);
+
+
     }
 }

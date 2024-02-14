@@ -18,29 +18,22 @@ public class DefaultScreen extends BorderPane {
 //        splitPane.setPrefSize(1920, 1080);
 //        splitPane.setMinSize(430, 500);
         Content content = new Content();
-        String[] items = new String[]{"Paolo", "Andrew", "Santos", "Pomar"};
+        String[] items = new String[]{"Home", "Movies", "TV Shows", "Owned"};
         NavBar navBar = new NavBar(items);
         navBar.setDefaultSelectedIndex(0);
 //        content.minWidth(content.getPrefViewportWidth() - navBar.getMinWidth());
         content.minWidth(Window.getWindows().size() * 3);
         TopBar topBar = new TopBar();
-        // COntainter for content and topbar
+
+        // Containter for content and topbar
         VBox vBox = new VBox();
 
         vBox.getChildren().addAll(topBar, content);
 //        navBar.setItems(items);
         navBar.setMinWidth(450);
 
-//        navBar.setma
         splitPane.getItems().addAll(vBox);
         setLeft(navBar);
         setCenter(splitPane);
-//        setRight(vBox);
-
-//        splitPane.autosize();
-//        splitPane.setDividerPositions(2);
-
-//        getChildren().add(splitPane);
-//        setPrefSize(1920, 1080);
     }
 }

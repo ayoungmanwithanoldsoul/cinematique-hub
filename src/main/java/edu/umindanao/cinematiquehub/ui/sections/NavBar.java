@@ -1,17 +1,16 @@
 package edu.umindanao.cinematiquehub.ui.sections;
 
+import edu.umindanao.cinematiquehub.events.ButtonPressEvent;
+import edu.umindanao.cinematiquehub.events.EventBus;
 import edu.umindanao.cinematiquehub.ui.components.NavBarItem;
-import javafx.geometry.Insets;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
 class CustomLogo extends HBox {
@@ -36,6 +35,9 @@ public class NavBar extends StackPane {
     private final CustomLogo customLogo;
 
     private final IntegerProperty selectedTabIndex = new SimpleIntegerProperty(-1);
+
+//    EventBus eventBus = EventBus.getInstance();
+
 
     public NavBar(String[] items) {
         vBox = new VBox();
@@ -69,11 +71,15 @@ public class NavBar extends StackPane {
 
             // Add your navigation logic here
             System.out.println("Clicked on: " + navItems[selectedIndex].getItem());
+            EventBus.emit(new ButtonPressEvent(navItems[selectedIndex].getItem()));
         }
     }
 
+
+    // A method that handles the changes in the item that was clicked
     public void setDefaultSelectedIndex(int defaultSelectedIndex) {
         if (defaultSelectedIndex >= 0 && defaultSelectedIndex < navItems.length) {
+
             // Deselect the current selected item
             if (selectedTabIndex.get() != -1) {
                 navItems[selectedTabIndex.get()].setSelected(false);

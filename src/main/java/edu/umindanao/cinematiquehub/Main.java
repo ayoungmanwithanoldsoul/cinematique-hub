@@ -22,20 +22,20 @@ public class Main extends Application {
         Stage stage2 = new Stage();
         stage2.centerOnScreen();
 
-        LogIn loginPane = new LogIn();
+//        LogIn loginPane = new LogIn();
 
         // Set up the scene
-        Scene scene2 = new Scene(loginPane, 300, 200);
+//        Scene scene2 = new Scene(loginPane, 300, 200);
 
         stage.centerOnScreen();
-        System.out.println();
+//        System.out.println();
 
         stage.show();
-        stage2.setScene(scene2);
-        stage2.setMinHeight(600);
-        stage2.setMinWidth(400);
+//        stage2.setScene(scene2);
+//        stage2.setMinHeight(600);
+//        stage2.setMinWidth(400);
 
-        stage2.showAndWait();
+//        stage2.showAndWait();
 
 
     }

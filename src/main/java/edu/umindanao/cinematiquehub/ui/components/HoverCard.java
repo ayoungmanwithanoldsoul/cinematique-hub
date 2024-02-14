@@ -101,6 +101,8 @@ public class HoverCard extends StackPane {
         VBox cardContainer = new VBox();
         cardContainer.setMinWidth(CARD_WIDTH);
         cardContainer.setMinHeight(CARD_HEIGHT);
+        cardContainer.setMaxWidth(CARD_WIDTH);
+        cardContainer.setMaxHeight(CARD_HEIGHT);
         cardContainer.setBackground(Background.fill(Color.LIGHTBLUE));
         cardContainer.setPadding(new Insets(30));
 
@@ -130,8 +132,11 @@ public class HoverCard extends StackPane {
         VBox cardContainer = new VBox();
         cardContainer.setMinWidth(CARD_WIDTH);
         cardContainer.setMinHeight(CARD_HEIGHT);
-        cardContainer.setBackground(Background.fill(Color.BLUEVIOLET));
+        cardContainer.setMaxWidth(CARD_WIDTH);
+        cardContainer.setMaxHeight(CARD_HEIGHT);
+        cardContainer.setBackground(Background.fill(Color.GREY));
         cardContainer.setPadding(new Insets(30));
+
         cardContainer.getChildren().addAll(imageView);
         return cardContainer;
     }

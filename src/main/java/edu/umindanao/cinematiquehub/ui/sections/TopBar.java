@@ -66,7 +66,7 @@ public class TopBar extends AnchorPane {
 //        AnchorPane.setRightAnchor(iconBar, 10.0);
 //        AnchorPane.setTopAnchor(iconBar, 5.0);
 
-        hBox.getChildren().addAll(searchBarWrapper, iconBar);
+//        hBox.getChildren().addAll(searchBarWrapper, iconBar);
         hBox.setSpacing(20);
         hBox.setPadding(new Insets(10.0));
 
