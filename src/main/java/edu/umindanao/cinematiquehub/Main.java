@@ -1,5 +1,8 @@
 package edu.umindanao.cinematiquehub;
 
+import edu.umindanao.cinematiquehub.tests.MovieCard;
+import edu.umindanao.cinematiquehub.tests.MovieCard2;
+import edu.umindanao.cinematiquehub.tests.MovieCard3;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -21,9 +24,9 @@ public class Main extends Application {
 
         stage.show();
 
-        MovieCard movieCard = new MovieCard(
+        MovieCard3 movieCard = new MovieCard3(
                 "Movie Title",
-                "your_movie_image_url.jpg",
+                "https://www.spypoint.com/img/products/trail-cameras/cellulaire/FLEX-S_Front-cut2.png",
                 "★★★☆☆",
                 "Hello World fjsd\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec."
         );
