@@ -5,6 +5,11 @@ import edu.umindanao.cinematiquehub.controllers.MovieCardController;
 import edu.umindanao.cinematiquehub.events.ButtonPressEvent;
 import edu.umindanao.cinematiquehub.events.EventBus;
 import edu.umindanao.cinematiquehub.events.EventListener;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
@@ -16,7 +21,17 @@ import javafx.scene.paint.Color;
 
 public class Content extends ScrollPane {
 
+    private final SimpleStringProperty selectedFilter = new SimpleStringProperty();
     FlowPane contentWrapperFlowPane = new FlowPane(Orientation.HORIZONTAL, 1, 2);
+    String[] filterOptions = {"Option1", "Option2", "Option3"}; // Replace with your actual filter options
+
+    FilterComponent filterComponent = new FilterComponent(filterOptions, selectedFilter);
+
+
+    private final ListProperty<String> multiSelectedFilters = new SimpleListProperty<>(FXCollections.observableArrayList());
+
+    DateRangeFilterComponent dateRangeFilterComponent;
+
 
     public Content() {
         setPrefSize(Double.MAX_VALUE, -1);
@@ -45,6 +60,7 @@ public class Content extends ScrollPane {
         styledText.setFontSize(80);
         styledText.setText("ifudfiudifudf");
 
+
         HoverCard[] hoverCards = new HoverCard[20];
         MovieCardController[] movieCardControllers = new MovieCardController[20];
         for (int i = 0; i < 20; i++) {
@@ -55,6 +71,24 @@ public class Content extends ScrollPane {
         }
         contentWrapperFlowPane.getChildren().add(styledText);
         setContent(contentWrapperFlowPane);
+
+
+        // Customize the appearance if needed
+        // filterComponent.setStyle("-fx-background-color: #CCCCCC;");
+
+        contentWrapperFlowPane.getChildren().add(filterComponent);
+        filterComponent.setClearButtonVisible(true); // Show the clear button
+
+
+        ObservableList<String> multiSelectFilterOptions = FXCollections.observableArrayList("Option1", "Option2", "Option3");
+        //    ObservableList<String> multiSelectFilterOptions = FXCollections.observableArrayList("Option1", "Option2", "Option3");
+        MultiSelectFilterComponent<String> multiSelectFilterComponent = new MultiSelectFilterComponent<>(multiSelectFilterOptions, multiSelectedFilters);
+//    MultiSelectFilterComponent<String> multiSelectFilterComponent = new MultiSelectFilterComponent<>(filterOptions, selectedFilters);
+
+        contentWrapperFlowPane.getChildren().add(multiSelectFilterComponent);
+
+        dateRangeFilterComponent = new DateRangeFilterComponent("Select year range", 1990, 2024);
+        contentWrapperFlowPane.getChildren().add(dateRangeFilterComponent);
 
 
 //        EventBus.getInstance().subscribe(ContentUpdateEvent.UPDATE_CONTENT, event -> updateContentText("Updated Text, Hello World"));
@@ -72,7 +106,8 @@ public class Content extends ScrollPane {
 
     public void updateContentText(String newText) {
         // Update the text of contentWrapperFlowPane
-        contentWrapperFlowPane.getChildren().clear();
+//        contentWrapperFlowPane.getChildren().clear();
+//        Class clas ==contentWrapperFlowPane.getChildren().get(0 )
         StyledText styledText = new StyledText(newText);
         styledText.setColor(Color.BLACK);
         styledText.setFontSize(20);
