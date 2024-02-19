@@ -19,8 +19,8 @@ public class Main extends Application {
         Scene scene = new Scene(userDashboard);
         stage.setScene(scene);
 //        ViewportUnitsHelper.setCurrentSceneFromStage(stage);
-//        stage.setHeight(720);
-//        stage.setWidth(1280);
+        stage.setHeight(720);
+        stage.setWidth(1280);
 //        stage.setMaximized(true);
 
 //        Stage stage2 = new Stage();

@@ -33,11 +33,12 @@ public class UserDashboard extends BorderPane {
         // Container for content and top bar
         VBox vBox = new VBox();
 
-        vBox.getChildren().addAll(topBar, content);
+        vBox.getChildren().add(content);
 
         navBar.setMinWidth(450);
 
         splitPane.getItems().addAll(vBox);
+        setTop(topBar);
 
         setLeft(navBar);
 

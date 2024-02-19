@@ -60,24 +60,22 @@ public class TopBar extends AnchorPane {
         searchBar.setAlignment(Pos.CENTER_LEFT);
         iconBar.setAlignment(Pos.CENTER_RIGHT);
 
-//        AnchorPane.setLeftAnchor(searchBar, 10.0);
-//        AnchorPane.setTopAnchor(searchBar, 5.0);
-//
-//        AnchorPane.setRightAnchor(iconBar, 10.0);
-//        AnchorPane.setTopAnchor(iconBar, 5.0);
+        AnchorPane.setLeftAnchor(searchBar, 10.0);
+        AnchorPane.setTopAnchor(searchBar, 5.0);
 
-//        hBox.getChildren().addAll(searchBarWrapper, iconBar);
+        AnchorPane.setRightAnchor(iconBar, 10.0);
+        AnchorPane.setTopAnchor(iconBar, 5.0);
+
+        hBox.getChildren().addAll(searchBarWrapper, iconBar);
         hBox.setSpacing(20);
         hBox.setPadding(new Insets(10.0));
 
         HBox.setHgrow(hBox, Priority.ALWAYS);
-//        hBox.setAlignment(Pos.CENTER);
+        hBox.setAlignment(Pos.CENTER_LEFT);
 
 
-        HBox.setMargin(hBox, new Insets(10, 20, 10, 20));
+        hBox.setPadding(new Insets(10, 20, 10, 20));
 
         getChildren().add(hBox);
-
-
     }
 }

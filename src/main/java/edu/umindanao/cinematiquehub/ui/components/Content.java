@@ -25,7 +25,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class Content extends Pane {
 
-    private final Node Home;
+    private final Home Home;
     //    private final SimpleStringProperty selectedFilter = new SimpleStringProperty();
 //    ContentWrapperFlowPane contentWrapperFlowPane = new ContentWrapperFlowPane();
 
@@ -58,6 +58,7 @@ public class Content extends Pane {
 //        styledText.setItalic(true);
 //        styledText.setFontSize(80);
 //        styledText.setText("ifudfiudifudf");
+
         Home = new Home();
 
         getChildren().add(Home);
@@ -104,6 +105,7 @@ public class Content extends Pane {
             }
         });
     }
+
 
 //    public void updateContentText(String newText) {
 //        // Update the text of contentWrapperFlowPane
