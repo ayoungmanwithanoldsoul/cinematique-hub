@@ -7,40 +7,7 @@ import javafx.stage.Stage;
  * ViewportUnitsHelper provides methods to calculate dimensions based on
  * a percentage of the current scene's width and height, mimicking the
  * behavior of CSS's vw and vh units.
- * <br>
- * Example Usage:
- * <br>
- * Example 1: Setting Scene Manually
- * {@code
- * Scene scene = new Scene(yourRootNode, 800, 600);
- * ViewportUnitsHelper.setCurrentScene(scene);
- * <br>
- * double widthInViewport1 = ViewportUnitsHelper.getWidthInViewportUnits(50);
- * double heightInViewport1 = ViewportUnitsHelper.getHeightInViewportUnits(25);
- * <br>
- * System.out.println("Example 1:");
- * System.out.println("Width in 50vw: " + widthInViewport1);
- * System.out.println("Height in 25vh: " + heightInViewport1);
- * System.out.println();
- * }
- * <br>
- * Example 2: Setting Scene Automatically from Stage
- * {@code
- * Stage primaryStage = new Stage();
- * Scene anotherScene = new Scene(anotherRootNode, 1200, 800);
- * primaryStage.setScene(anotherScene);
- * <br>
- * ViewportUnitsHelper.setStage(primaryStage);
- * <br>
- * double widthInViewport2 = ViewportUnitsHelper.getWidthInViewportUnits(30);
- * double heightInViewport2 = ViewportUnitsHelper.getHeightInViewportUnits(75);
- * <br>
- * System.out.println("Example 2:");
- * System.out.println("Width in 30vw: " + widthInViewport2);
- * System.out.println("Height in 75vh: " + heightInViewport2);
- * }
  */
-
 public class ViewportUnitsHelper {
 
     private static Scene currentScene;
@@ -69,15 +36,29 @@ public class ViewportUnitsHelper {
     }
 
     /**
+     * Set the current scene by extracting it from the provided stage for viewport unit calculations.
+     *
+     * @param stage The stage whose scene will be set as the current scene.
+     * @throws IllegalArgumentException If the provided stage is null.
+     */
+    public static void setCurrentSceneFromStage(Stage stage) {
+        if (stage != null) {
+            currentScene = stage.getScene();
+        } else {
+            throw new IllegalArgumentException("Stage cannot be null.");
+        }
+    }
+
+    /**
      * Calculate the width in viewport units based on the provided percentage.
      *
      * @param percentage The percentage of the current scene's width.
      * @return The calculated width in viewport units.
-     * @throws IllegalStateException If the current scene is not set. Call setCurrentScene() or setStage() first.
+     * @throws IllegalStateException If the current scene is not set. Call setCurrentScene(), setStage(), or setCurrentSceneFromStage() first.
      */
     public static double getWidthInViewportUnits(double percentage) {
         if (currentScene == null) {
-            throw new IllegalStateException("Current scene not set. Call setCurrentScene() or setStage() first.");
+            throw new IllegalStateException("Current scene not set. Call setCurrentScene(), setStage(), or setCurrentSceneFromStage() first.");
         }
 
         return currentScene.getWidth() * (percentage / 100.0);
@@ -88,11 +69,11 @@ public class ViewportUnitsHelper {
      *
      * @param percentage The percentage of the current scene's height.
      * @return The calculated height in viewport units.
-     * @throws IllegalStateException If the current scene is not set. Call setCurrentScene() or setStage() first.
+     * @throws IllegalStateException If the current scene is not set. Call setCurrentScene(), setStage(), or setCurrentSceneFromStage() first.
      */
     public static double getHeightInViewportUnits(double percentage) {
         if (currentScene == null) {
-            throw new IllegalStateException("Current scene not set. Call setCurrentScene() or setStage() first.");
+            throw new IllegalStateException("Current scene not set. Call setCurrentScene(), setStage(), or setCurrentSceneFromStage() first.");
         }
 
         return currentScene.getHeight() * (percentage / 100.0);

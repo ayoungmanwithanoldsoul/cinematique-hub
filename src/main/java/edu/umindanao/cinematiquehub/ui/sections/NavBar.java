@@ -1,7 +1,6 @@
 package edu.umindanao.cinematiquehub.ui.sections;
 
-import edu.umindanao.cinematiquehub.events.ButtonPressEvent;
-import edu.umindanao.cinematiquehub.events.EventBus;
+import edu.umindanao.cinematiquehub.events.*;
 import edu.umindanao.cinematiquehub.ui.components.NavBarItem;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -29,14 +28,13 @@ class CustomLogo extends HBox {
 }
 
 public class NavBar extends StackPane {
+    private final String appDir = "edu.umindanao.cinematiquehub.";
 
     private final VBox vBox;
     private final NavBarItem[] navItems;
     private final CustomLogo customLogo;
 
     private final IntegerProperty selectedTabIndex = new SimpleIntegerProperty(-1);
-
-//    EventBus eventBus = EventBus.getInstance();
 
 
     public NavBar(String[] items) {
@@ -60,6 +58,7 @@ public class NavBar extends StackPane {
 
     private void handleNavItemClicked(int selectedIndex) {
         if (selectedTabIndex.get() != selectedIndex) {
+
             // Deselect the currently selected item
             if (selectedTabIndex.get() != -1) {
                 navItems[selectedTabIndex.get()].setSelected(false);
@@ -71,7 +70,12 @@ public class NavBar extends StackPane {
 
             // Add your navigation logic here
             System.out.println("Clicked on: " + navItems[selectedIndex].getItem());
-            EventBus.emit(new ButtonPressEvent(navItems[selectedIndex].getItem()));
+
+//            EventBus.emit(new ButtonPressEvent(navItems[selectedIndex].getItem()));
+
+//            EventBus.emit(new RouteChangeEvent(AnotherView.class));
+
+            EventBus.emit(new RouteChangeEvent(new RouterClassProvider(), appDir + "user.content." + navItems[selectedIndex].getItem()));
         }
     }
 

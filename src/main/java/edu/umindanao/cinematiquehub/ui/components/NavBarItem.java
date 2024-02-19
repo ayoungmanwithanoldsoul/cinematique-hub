@@ -80,7 +80,7 @@ public class NavBarItem extends Button {
     }
 
     public String getItem() {
-        return itemName;
+        return itemName.replace(" ", "");
     }
 
     public interface NavItemClickListener {

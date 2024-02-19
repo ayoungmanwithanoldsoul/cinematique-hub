@@ -1,36 +1,43 @@
 package edu.umindanao.cinematiquehub;
 
-import edu.umindanao.cinematiquehub.ui.screens.LogIn;
+import edu.umindanao.cinematiquehub.utils.ViewportUnitsHelper;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import edu.umindanao.cinematiquehub.ui.screens.DefaultScreen;
+import edu.umindanao.cinematiquehub.user.UserDashboard;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("CinematiqueHub");
-        DefaultScreen defaultScreen = new DefaultScreen();
-        Scene scene = new Scene(defaultScreen);
-        stage.setScene(scene);
-        stage.setHeight(720);
-        stage.setWidth(1280);
-        stage.setMaximized(true);
 
-        Stage stage2 = new Stage();
-        stage2.centerOnScreen();
+        UserDashboard userDashboard = new UserDashboard();
+
+
+        Scene scene = new Scene(userDashboard);
+        stage.setScene(scene);
+//        ViewportUnitsHelper.setCurrentSceneFromStage(stage);
+//        stage.setHeight(720);
+//        stage.setWidth(1280);
+//        stage.setMaximized(true);
+
+//        Stage stage2 = new Stage();
+//        stage2.centerOnScreen();
 
 //        LogIn loginPane = new LogIn();
 
         // Set up the scene
 //        Scene scene2 = new Scene(loginPane, 300, 200);
+//        ViewportUnitsHelper.setStage(stage);
+
 
         stage.centerOnScreen();
 //        System.out.println();
 
         stage.show();
+
 //        stage2.setScene(scene2);
 //        stage2.setMinHeight(600);
 //        stage2.setMinWidth(400);

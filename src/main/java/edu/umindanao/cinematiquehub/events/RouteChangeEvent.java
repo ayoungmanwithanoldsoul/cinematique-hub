@@ -9,15 +9,18 @@ package edu.umindanao.cinematiquehub.events;
  */
 public class RouteChangeEvent implements Event {
 
-    private final Class<?> destination;
+    //    private final Class<?> destination;
+    private final ClassProvider classProvider;
+    private final String destinationClassName;
 
     /**
      * Constructs a RouteChangeEvent with the specified destination class.
      *
-     * @param destination The class representing the destination route.
+     * @param destinationClassName The class representing the destination route.
      */
-    public RouteChangeEvent(Class<?> destination) {
-        this.destination = destination;
+    public RouteChangeEvent(ClassProvider classProvider, String destinationClassName) {
+        this.classProvider = classProvider;
+        this.destinationClassName = destinationClassName;
     }
 
     /**
@@ -26,6 +29,6 @@ public class RouteChangeEvent implements Event {
      * @return The destination class.
      */
     public Class<?> getDestination() {
-        return destination;
+        return classProvider.getClass(destinationClassName);
     }
 }
