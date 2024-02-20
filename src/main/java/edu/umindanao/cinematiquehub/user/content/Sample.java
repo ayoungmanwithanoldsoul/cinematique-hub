@@ -16,8 +16,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Window;
 
-public class TVShows extends BorderPane {
-    public TVShows() {
+public class Sample extends BorderPane {
+    public Sample() {
         SplitPane splitPane = new SplitPane();
         HorizontalFlowPaneContainer moviesHorizontalFlowPaneContainer = new HorizontalFlowPaneContainer();
         HoverCard[] hoverCards = new HoverCard[20];
@@ -57,7 +57,7 @@ public class TVShows extends BorderPane {
 //    ContentWrapperFlowPane homeContentWrapperFlowPane = new ContentWrapperFlowPane();
 
 
-        String[] items = new String[]{"Home", "Movies", "Sample", "TV Shows", "Owned"};
+        String[] items = new String[]{"Home", "Movies", "TV Shows", "Owned"};
 
         NavBar navBar = new NavBar(items);
 

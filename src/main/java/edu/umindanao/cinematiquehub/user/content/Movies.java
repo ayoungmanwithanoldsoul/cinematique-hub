@@ -22,22 +22,5 @@ public class Movies extends VBox {
         }
 
         getChildren().add(carousel);
-//        return v
-
     }
-
-/*    public VBox testRun() {
-        VBox vBox = new VBox();
-
-        HoverCard[] hoverCards = new HoverCard[20];
-        MovieCardController[] movieCardControllers = new MovieCardController[20];
-        for (int i = 0; i < 10; i++) {
-            hoverCards[i] = new HoverCard();
-            movieCardControllers[i] = new MovieCardController(hoverCards[i]);
-            movieCardControllers[i].initialize(null, null);
-            vBox.getChildren().add(hoverCards[i]);
-        }
-
-        return vBox;
-    }*/
 }

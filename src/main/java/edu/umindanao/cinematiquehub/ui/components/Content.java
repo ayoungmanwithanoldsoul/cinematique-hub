@@ -76,34 +76,34 @@ public class Content extends Pane {
 //        }
 
 
-        EventBus.listenFor(RouteChangeEvent.class, new EventListener<RouteChangeEvent>() {
-            @Override
-            public void handle(RouteChangeEvent event) {
-                // React to the route change event
-                Class<?> destination = event.getDestination();
-
-                // Update content to the destination
-                try {
-                    // Instantiate an object of the destination class
-                    Object destinationInstance = destination.getDeclaredConstructor().newInstance();
-
-                    // Assuming destinationInstance is a JavaFX Node, add it to the content
-                    if (destinationInstance instanceof Node) {
-//                        contentWrapperFlowPane.getChildren().clear(); // Clear existing content
-//                        contentWrapperFlowPane.getChildren().add((Node) destinationInstance);
-                        getChildren().clear();
-                        getChildren().add((Node) destinationInstance);
-                    } else {
-                        // Handle non-Node destinations or take appropriate action
-                        System.out.println("Destination is not a valid JavaFX Node.");
-                    }
-                } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
-                         InvocationTargetException e) {
-                    // Handle the exception as needed
-                    e.printStackTrace();
-                }
-            }
-        });
+//        EventBus.listenFor(RouteChangeEvent.class, new EventListener<RouteChangeEvent>() {
+//            @Override
+//            public void handle(RouteChangeEvent event) {
+//                // React to the route change event
+//                Class<?> destination = event.getDestination();
+//
+//                // Update content to the destination
+//                try {
+//                    // Instantiate an object of the destination class
+//                    Object destinationInstance = destination.getDeclaredConstructor().newInstance();
+//
+//                    // Assuming destinationInstance is a JavaFX Node, add it to the content
+//                    if (destinationInstance instanceof Node) {
+////                        contentWrapperFlowPane.getChildren().clear(); // Clear existing content
+////                        contentWrapperFlowPane.getChildren().add((Node) destinationInstance);
+//                        getChildren().clear();
+//                        getChildren().add((Node) destinationInstance);
+//                    } else {
+//                        // Handle non-Node destinations or take appropriate action
+//                        System.out.println("Destination is not a valid JavaFX Node.");
+//                    }
+//                } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
+//                         InvocationTargetException e) {
+//                    // Handle the exception as needed
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
     }
 
 

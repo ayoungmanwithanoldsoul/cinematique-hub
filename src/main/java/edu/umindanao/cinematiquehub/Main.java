@@ -1,5 +1,11 @@
 package edu.umindanao.cinematiquehub;
 
+import edu.umindanao.cinematiquehub.events.EventBus;
+import edu.umindanao.cinematiquehub.events.EventListener;
+import edu.umindanao.cinematiquehub.events.RouteChangeEvent;
+import edu.umindanao.cinematiquehub.events.RouteChangeEvent2;
+import edu.umindanao.cinematiquehub.user.content.Home;
+import edu.umindanao.cinematiquehub.user.content.Owned;
 import edu.umindanao.cinematiquehub.utils.ViewportUnitsHelper;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -13,14 +19,41 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         stage.setTitle("CinematiqueHub");
 
-        UserDashboard userDashboard = new UserDashboard();
+//        UserDashboard userDashboard = new UserDashboard();
+//        Home home = new Home();
+        Owned owned = new Owned();
 
 
-        Scene scene = new Scene(userDashboard);
+        Scene scene = new Scene(owned);
         stage.setScene(scene);
 //        ViewportUnitsHelper.setCurrentSceneFromStage(stage);
         stage.setHeight(720);
         stage.setWidth(1280);
+        EventBus.listenFor(RouteChangeEvent2.class, new EventListener<RouteChangeEvent2>() {
+            @Override
+            public void handle(RouteChangeEvent2 event) {
+                // React to the route change event
+                Class<?> destinationClass = event.getDestination();
+
+                try {
+                    // Instantiate an object of the specified class
+                    Object destinationObject = destinationClass.getDeclaredConstructor().newInstance();
+
+                    if (destinationObject instanceof javafx.scene.Parent) {
+                        // Check if the object is a JavaFX Node
+                        javafx.scene.Parent destinationNode = (javafx.scene.Parent) destinationObject;
+
+                        // Set the instantiated object as the root of the scene
+                        stage.setScene(new Scene(destinationNode));
+                    } else {
+                        System.err.println("Invalid destination class. It should be a subclass of javafx.scene.Parent.");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace(); // Handle the exception as needed
+                }
+            }
+        });
+
 //        stage.setMaximized(true);
 
 //        Stage stage2 = new Stage();

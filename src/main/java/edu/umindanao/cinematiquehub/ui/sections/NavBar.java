@@ -75,7 +75,8 @@ public class NavBar extends StackPane {
 
 //            EventBus.emit(new RouteChangeEvent(AnotherView.class));
 
-            EventBus.emit(new RouteChangeEvent(new RouterClassProvider(), appDir + "user.content." + navItems[selectedIndex].getItem()));
+//            EventBus.emit(new RouteChangeEvent(new RouterClassProvider(), appDir + "user.content." + navItems[selectedIndex].getItem()));
+            EventBus.emit(new RouteChangeEvent2(new ClassProviderImpl(), "edu.umindanao.cinematiquehub.user.content." + navItems[selectedIndex].getItem()));
         }
     }
 

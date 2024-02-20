@@ -1,6 +1,7 @@
 package edu.umindanao.cinematiquehub.user.content;
 
 import edu.umindanao.cinematiquehub.ui.components.HorizontalHeadingRegion;
+import edu.umindanao.cinematiquehub.ui.components.Pagination;
 import edu.umindanao.cinematiquehub.utils.ViewportUnitsHelper;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -104,8 +105,6 @@ public class Home extends VBox {
 //        setContent(vBox);
 
         // Add the ScrollPane to the VBox
-        getChildren().add(moviesHeading);
-        getChildren().add(tvShowsHeading);
 
 
     }
