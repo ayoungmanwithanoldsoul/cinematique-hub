@@ -4,9 +4,8 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../Gradle/gradle-8.5" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../../../../codes/gradle-8.6" />
         <option name="gradleJvm" value="21" />
         <option name="modules">
           <set>

@@ -15,7 +15,7 @@ public class MainLogin extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-	//LoginDemo demo = new LoginDemo(primaryStage);
-	AdminLogin admin = new AdminLogin(primaryStage);
+	LoginDemo demo = new LoginDemo(primaryStage);
+	//AdminLogin admin = new AdminLogin(primaryStage);
 	}
 }
